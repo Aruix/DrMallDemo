@@ -7,6 +7,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -22,14 +23,7 @@ public class CorsConfig {
         origins.add("http://localhost:9527");
         corsConfiguration.setAllowedOrigins(origins);
         corsConfiguration.addAllowedHeader("*"); // 2 设置访问源请求头
-        List<String> methods = new ArrayList<>();
-        methods.add("POST");
-        methods.add("GET");
-        methods.add("PATCH");
-        methods.add("DELETE");
-        methods.add("PUT");
-        methods.add("OPTIONS");
-        corsConfiguration.setAllowedMethods(methods);
+        corsConfiguration.setAllowedMethods(Arrays.asList("POST", "GET", "PATCH", "DELETE", "PUT", "OPTIONS"));
         corsConfiguration.setMaxAge(maxAge);
         corsConfiguration.setAllowCredentials(true);
 
